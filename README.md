@@ -5,7 +5,7 @@
    Vie lapset harrastuksiin
 
 **Tiistai: **
-   **Osta lahja _Kakelle_ kaupasta**
+   **Osta lahja _Kakelle_ kaupasta**, kiva lahja..
 
 **Keskiviikko: **
    ***Kaken synttärit***, 
