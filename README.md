@@ -1,7 +1,7 @@
 # Viikko
 
 **Maanantai: **
-   Käy kaupassa, 
+   Käy kaupassa (osta suklaata), 
    Vie lapset harrastuksiin
 
 **Tiistai: **
