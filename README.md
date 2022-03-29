@@ -1,28 +1,10 @@
-# Viikko
+# Väärinpäin ristinolla
 
-**Maanantai: **
-   Käy kaupassa (osta suklaata), 
-   Vie lapset harrastuksiin
+Sovellus on ristinolla, mutta ***väärinpäin***. Pelin voittaa se pelaaja,
+joka ei joudu pakosta asettamaan kolmensuoraa.
 
-**Tiistai: **
-   **Osta lahja _Kakelle_ kaupasta**, kiva lahja..
+##Dokumentaatio
+- Käyttöohje
+- [Vaatimuusmäärittely ja toiminnallisuudet](/home/hartolli/ot-harjoitustyo/vaatimusmaarittely.md)
+- [Työaikakirjanpito](/home/hartolli/ot-harjoitustyo/tyoaikakirjanpito.md)
 
-**Keskiviikko: **
-   ***Kaken synttärit***, 
-   Vie koira hammaslääkäriin
-
-**Torstai: **
-   Aja nurmikko
-
-**Perjantai: **
-   *Lähtö Tallinnaan*
-
-**Lauantai: **
-   Tallinnassa
-
-**Sunnuntai: **
-   *Paluu Tallinnasta*
-
-[gitlog.txt](laskarit/viikko1/gitlog.txt)
-
-[komentorivi.txt](laskarit/viikko1/komentorivi.txt)
