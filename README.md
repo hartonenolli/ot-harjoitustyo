@@ -5,6 +5,6 @@ joka ei joudu pakosta asettamaan kolmensuoraa.
 
 ##Dokumentaatio
 - Käyttöohje
-- [Vaatimuusmäärittely ja toiminnallisuudet](/home/hartolli/ot-harjoitustyo/vaatimusmaarittely.md)
-- [Työaikakirjanpito](/home/hartolli/ot-harjoitustyo/tyoaikakirjanpito.md)
+- [Vaatimuusmäärittely ja toiminnallisuudet](IMG_20220329_143323__01.jpg)
+- [Työaikakirjanpito](IMG_20220329_143323__01.jpg)
 
