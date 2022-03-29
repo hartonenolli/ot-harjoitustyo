@@ -11,7 +11,7 @@ Pelin ***VOITTAA*** pelaaja joka välttyi kolmen suoralta.
 Sovelluksessa on vain yhdenlaisia käyttäjiä: pelaajia.
 
 
-![Tähän tulee luonnos](/home/hartolli/ot-harjoitustyo/IMG_20220329_143323__01.jpg)
+![Tähän tulee luonnos](https://raw.githubusercontent.com/hartonenolli/ot-harjoitustyo/master/Kaavio_kuva.jpg)
 
 ##suunniteltuja toiminnallisuuksia
 - Pelissä voi valita 2-4 pelaajaa
