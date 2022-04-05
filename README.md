@@ -3,7 +3,8 @@
 Sovellus on ristinolla, mutta ***väärinpäin***. Pelin voittaa se pelaaja,
 joka ei joudu pakosta asettamaan kolmensuoraa.
 
-##Dokumentaatio
+## Dokumentaatio
+- [Muutokset](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
 - Käyttöohje
 - [Vaatimuusmäärittely ja toiminnallisuudet](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/vaatimusmaarittely.md)
 - [Työaikakirjanpito](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/tyoaikakirjanpito.md)
