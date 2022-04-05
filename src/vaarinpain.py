@@ -1,7 +1,5 @@
 #vaarinpain_ristinolla
 
-import pygame
-import webbrowser
 
 class Vaarinpain:
     def __init__(self):
@@ -115,4 +113,6 @@ class Vaarinpain:
             self.start_screen()
 
 if __name__=="__main__":
-    c = VaarinPain()
+    import pygame
+    import webbrowser
+    c = Vaarinpain()
