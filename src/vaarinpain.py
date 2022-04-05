@@ -115,4 +115,4 @@ class Vaarinpain:
 if __name__=="__main__":
     import pygame
     import webbrowser
-    c = Vaarinpain()
+    Vaarinpain()
