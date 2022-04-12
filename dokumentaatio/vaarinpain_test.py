@@ -22,3 +22,6 @@ class TestVaarinpain(unittest.TestCase):
             
     def test_start_again(self):
         self.assertTrue(Vaarinpain.start_again)
+
+    def test_play_setup(self):
+        self.assertTrue(Vaarinpain.play_setup)

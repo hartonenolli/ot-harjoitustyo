@@ -1,13 +1,8 @@
 from invoke import task
 
 @task
-def foo(ctx):
-    print("bar")
-
-@task
 def start(ctx):
-    ctx.run("python3 src/vaarinpain.py", pty=True)
-    
+    ctx.run("python3 src/ristinolla.py", pty=True)
     
 @task
 def test(ctx):

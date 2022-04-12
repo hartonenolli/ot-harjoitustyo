@@ -9,7 +9,7 @@ class Nalle(pygame.sprite.Sprite):
 
         self.image = pygame.image.load(os.path.join(direktory_name, "assets", "nalle.jpg"))
         self.image = pygame.transform.scale(self.image, (200, 200))
-
+        
         self.rect = self.image.get_rect()
 
         self.rect.x = x

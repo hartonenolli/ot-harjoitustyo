@@ -65,6 +65,7 @@ class GameLevel:
                     if j > 1:
                         if game_map[i][j] == game_map[i+1][j-1] == game_map[i+2][j-2] and game_map[i][j] != 0:
                             return True
+        return False
 
     def Lozer_info(player):
         print(player, "WON")
