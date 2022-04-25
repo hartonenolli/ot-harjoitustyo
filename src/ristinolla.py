@@ -31,14 +31,22 @@ class Ristinolla:
 
         pygame.init()
 
+        clock = pygame.time.Clock()
+
         level.all_sprites.draw(display)
         
         running = True
 
         if GameLevel.c_loze(self.LEVEL_MAP) == True:
             GameLevel.Lozer_info(player)
+            display = pygame.display.set_mode((display_width, display_height))
+            font = pygame.font.SysFont("Arial", 30)
+            display.fill((255,255,255))
+            display.blit(font.render("PLAYER " + str(player) + " WON", True, (0, 0, 0)), (display_width//2, display_height//2))
+            
 
         while running:
+            clock.tick(50)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False

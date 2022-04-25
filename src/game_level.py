@@ -49,6 +49,7 @@ class GameLevel:
         if game_map[value[0]][value[1]] != 0:
             return False
         game_map[value[0]][value[1]] = player
+        return game_map
 
     def c_loze(game_map):
         for i, c in enumerate(game_map):
