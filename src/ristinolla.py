@@ -37,8 +37,7 @@ class Ristinolla:
         
         running = True
 
-        if GameLevel.c_loze(self.LEVEL_MAP) == True:
-            GameLevel.Lozer_info(player)
+        if GameLevel.c_loze(GameLevel, self.LEVEL_MAP) == True:
             display = pygame.display.set_mode((display_width, display_height))
             font = pygame.font.SysFont("Arial", 30)
             display.fill((255,255,255))
@@ -52,7 +51,7 @@ class Ristinolla:
                     running = False
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     pos = event.pos
-                    if GameLevel.handle_click(player, pos, self.POSITION_MAP, self.LEVEL_MAP) == False:
+                    if GameLevel.handle_click(GameLevel, player, pos, self.POSITION_MAP, self.LEVEL_MAP) == False:
                         continue
                     if player == 1:
                         self.main(2)

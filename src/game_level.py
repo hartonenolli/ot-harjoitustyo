@@ -1,4 +1,3 @@
-from turtle import Turtle
 import pygame
 from sprites.White import White
 from sprites.Nalle import Nalle
@@ -20,11 +19,11 @@ class GameLevel:
         height = len(level_map)
         width = len(level_map[0])
 
-        for y in range(height):
-            for x in range(width):
-                cell = level_map[y][x]
-                normalized_x = x * self.cell_size
-                normalized_y = y * self.cell_size
+        for y_hight in range(height):
+            for x_widht in range(width):
+                cell = level_map[y_hight][x_widht]
+                normalized_x = x_widht * self.cell_size
+                normalized_y = y_hight * self.cell_size
 
                 if cell == 0:
                     self.white.add(White(normalized_x, normalized_y))
@@ -40,33 +39,30 @@ class GameLevel:
             self.pupu
         )
 
-    def handle_click(player, cordinates, position_map, game_map):
+    def handle_click(self, player, cordinates, position_map, game_map):
         value=[]
-        for i, c in enumerate(position_map):
-            for j, z in enumerate(c):
-                if cordinates[0] > z[0] and cordinates[1] > z[1]:
-                    value = [i,j]
+        for position_indx, position_list in enumerate(position_map):
+            for symbol_indx, position_symbol in enumerate(position_list):
+                if cordinates[0] > position_symbol[0] and cordinates[1] > position_symbol[1]:
+                    value = [position_indx,symbol_indx]
         if game_map[value[0]][value[1]] != 0:
             return False
         game_map[value[0]][value[1]] = player
         return game_map
 
-    def c_loze(game_map):
-        for i, c in enumerate(game_map):
-            for j, z in enumerate(c):
-                if j < 3:
-                    if c[j] == c[j+1] == c[j+2] and c[j] != 0:
+    def c_loze(self, game_map):
+        for position_indx, position_list in enumerate(game_map):
+            for symbol_indx, _ in enumerate(position_list):
+                if symbol_indx < 3:
+                    if position_list[symbol_indx] == position_list[symbol_indx+1] == position_list[symbol_indx+2] and position_list[symbol_indx] != 0:
                         return True
-                    if i < 3:
-                        if game_map[i][j] == game_map[i+1][j+1] == game_map[i+2][j+2] and game_map[i][j] != 0:
+                    if position_indx < 3:
+                        if game_map[position_indx][symbol_indx] == game_map[position_indx+1][symbol_indx+1] == game_map[position_indx+2][symbol_indx+2] and game_map[position_indx][symbol_indx] != 0:
                             return True
-                if i < 3:
-                    if game_map[i][j] == game_map[i+1][j] == game_map[i+2][j] and game_map[i][j] != 0:
+                if position_indx < 3:
+                    if game_map[position_indx][symbol_indx] == game_map[position_indx+1][symbol_indx] == game_map[position_indx+2][symbol_indx] and game_map[position_indx][symbol_indx] != 0:
                         return True
-                    if j > 1:
-                        if game_map[i][j] == game_map[i+1][j-1] == game_map[i+2][j-2] and game_map[i][j] != 0:
+                    if symbol_indx > 1:
+                        if game_map[position_indx][symbol_indx] == game_map[position_indx+1][symbol_indx-1] == game_map[position_indx+2][symbol_indx-2] and game_map[position_indx][symbol_indx] != 0:
                             return True
         return False
-
-    def Lozer_info(player):
-        print(player, "WON")
