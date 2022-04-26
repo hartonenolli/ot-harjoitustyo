@@ -4,7 +4,6 @@ from sprites.Nalle import Nalle
 from sprites.Pupu import Pupu
 
 
-
 class GameLevel:
     def __init__(self, level_map, cell_size):
         self.cell_size = cell_size
@@ -32,7 +31,6 @@ class GameLevel:
                 if cell == 2:
                     self.pupu.add(Pupu(normalized_x, normalized_y))
 
-
         self.all_sprites.add(
             self.white,
             self.nalle,
@@ -40,11 +38,11 @@ class GameLevel:
         )
 
     def handle_click(self, player, cordinates, position_map, game_map):
-        value=[]
+        value = []
         for position_indx, position_list in enumerate(position_map):
             for symbol_indx, position_symbol in enumerate(position_list):
                 if cordinates[0] > position_symbol[0] and cordinates[1] > position_symbol[1]:
-                    value = [position_indx,symbol_indx]
+                    value = [position_indx, symbol_indx]
         if game_map[value[0]][value[1]] != 0:
             return False
         game_map[value[0]][value[1]] = player
