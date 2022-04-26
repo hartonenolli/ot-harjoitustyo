@@ -1,3 +1,4 @@
+import webbrowser
 import pygame
 from game_level import GameLevel
 
@@ -51,6 +52,14 @@ class Ristinolla:
             font = pygame.font.SysFont("Comic Sans MS", 30)
             display.blit(font.render("PLAYER " + str(player) + " WON",
                          True, (0, 0, 0)), (self.display_width//2, self.display_height//2))
+            pygame.display.update()
+            pygame.time.wait(6000)
+            self.level_map = [[0, 0, 0, 0, 0],
+                              [0, 0, 0, 0, 0],
+                              [0, 0, 0, 0, 0],
+                              [0, 0, 0, 0, 0],
+                              [0, 0, 0, 0, 0]]
+            self.start_screen()
 
         while self.running:
             clock.tick(50)
@@ -81,7 +90,14 @@ class Ristinolla:
         font = pygame.font.SysFont("Comic Sans MS", 30)
 
         game_begin = font.render("START GAME: PRESS G", True, (255, 255, 255))
-        screen.blit(game_begin, (450, 200))
+        screen.blit(game_begin, (300, 200))
+        wiki_w = font.render("TO WIKI: PRESS W", True, (255, 255, 255))
+        screen.blit(wiki_w, (300, 240))
+        instructions = font.render(
+            "TRY NOT TO GET 3 IN LINE", True, (255, 255, 255))
+        screen.blit(instructions, (300, 280))
+        exit = font.render("TO EXIT: PRESS E", True, (255, 255, 255))
+        screen.blit(exit, (300, 320))
 
         while self.running:
             for event in pygame.event.get():
@@ -90,6 +106,11 @@ class Ristinolla:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_g:
                         self.main(1)
+                    if event.key == pygame.K_w:
+                        webbrowser.open(
+                            r"https://en.wikipedia.org/wiki/Tic-tac-toe")
+                    if event.key == pygame.K_e:
+                        self.running = False
 
             pygame.display.update()
 
