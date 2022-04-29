@@ -13,7 +13,6 @@ joka ei joudu pakosta asettamaan kolmensuoraa.
 ## Komentorivi:
 ### Poetry
 - poetry install
-- poetry run invoke build
 - poetry run invoke start
 
 ### Ohjelma käynnistyy
