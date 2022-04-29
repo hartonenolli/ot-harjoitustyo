@@ -1,7 +1,8 @@
 import pygame
-from sprites.White import White
-from sprites.Nalle import Nalle
-from sprites.Pupu import Pupu
+from sprites.white_kuva import White
+from sprites.nalle_kuva import Nalle
+from sprites.pupu_kuva import Pupu
+from sprites.pojan_amongus_kuva import PojanAmongus
 
 
 class GameLevel:
@@ -30,6 +31,8 @@ class GameLevel:
                     self.nalle.add(Nalle(normalized_x, normalized_y))
                 if cell == 2:
                     self.pupu.add(Pupu(normalized_x, normalized_y))
+                if cell == 3:
+                    self.pupu.add(PojanAmongus(normalized_x, normalized_y))
 
         self.all_sprites.add(
             self.white,
@@ -48,19 +51,37 @@ class GameLevel:
         game_map[value[0]][value[1]] = player
         return game_map
 
-    def c_loze(self, game_map):
+    def chek_loze(self, game_map):
         for position_indx, position_list in enumerate(game_map):
             for symbol_indx, _ in enumerate(position_list):
-                if symbol_indx < 3:
-                    if position_list[symbol_indx] == position_list[symbol_indx+1] == position_list[symbol_indx+2] and position_list[symbol_indx] != 0:
-                        return True
-                    if position_indx < 3:
-                        if game_map[position_indx][symbol_indx] == game_map[position_indx+1][symbol_indx+1] == game_map[position_indx+2][symbol_indx+2] and game_map[position_indx][symbol_indx] != 0:
-                            return True
-                if position_indx < 3:
-                    if game_map[position_indx][symbol_indx] == game_map[position_indx+1][symbol_indx] == game_map[position_indx+2][symbol_indx] and game_map[position_indx][symbol_indx] != 0:
-                        return True
-                    if symbol_indx > 1:
-                        if game_map[position_indx][symbol_indx] == game_map[position_indx+1][symbol_indx-1] == game_map[position_indx+2][symbol_indx-2] and game_map[position_indx][symbol_indx] != 0:
-                            return True
+                if self.return_function_for_chek(self, game_map, position_list,
+                symbol_indx, position_indx) is True:
+                    return True
+
+        return False
+
+    def return_function_for_chek(self, game_map, position_list, symbol_indx, position_indx):
+        if position_list[symbol_indx] == 0:
+            return False
+        if symbol_indx < len(position_list)-2:
+            if (position_list[symbol_indx] ==
+            position_list[symbol_indx+1] ==
+            position_list[symbol_indx+2]):
+                return True
+            if position_indx < 3:
+                if (game_map[position_indx][symbol_indx] ==
+                game_map[position_indx+1][symbol_indx+1] ==
+                game_map[position_indx+2][symbol_indx+2]):
+                    return True
+
+        if position_indx < 3:
+            if (game_map[position_indx][symbol_indx] ==
+            game_map[position_indx+1][symbol_indx] ==
+            game_map[position_indx+2][symbol_indx]):
+                return True
+            if symbol_indx > 1:
+                if (game_map[position_indx][symbol_indx] ==
+                game_map[position_indx+1][symbol_indx-1] ==
+                game_map[position_indx+2][symbol_indx-2]):
+                    return True
         return False

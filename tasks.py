@@ -2,7 +2,7 @@ from invoke import task
 
 @task
 def start(ctx):
-    ctx.run("python3 src/ristinolla.py", pty=True)
+    ctx.run("python3 src/ristinolla_kayttoliittyma.py", pty=True)
     
 @task
 def test(ctx):
