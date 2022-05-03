@@ -63,7 +63,7 @@ class Ristinolla:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
-                if event.type == pygame.MOUSEBUTTONDOWN:
+                elif event.type == pygame.MOUSEBUTTONDOWN:
                     pos = event.pos
                     # to_handle_click helps to navigate between 5x5 and 5x7
                     if self.to_handle_click(player, pos) is False:
@@ -144,7 +144,7 @@ class Ristinolla:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
-                if event.type == pygame.KEYDOWN:
+                elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_g:
                         self.main(1)
                     if event.key == pygame.K_t:
