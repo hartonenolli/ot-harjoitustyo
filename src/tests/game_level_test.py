@@ -45,32 +45,32 @@ class TestGameLevel(unittest.TestCase):
 
     def test_chek_loze_3(self):
         test_result = GameLevel.chek_loze(GameLevel, [[0, 0, 0, 0, 0],
-                                                   [0, 0, 0, 0, 0],
-                                                   [0, 1, 1, 1, 0],
-                                                   [0, 0, 0, 0, 0],
-                                                   [0, 0, 0, 0, 0]])
+                                                      [0, 0, 0, 0, 0],
+                                                      [0, 1, 1, 1, 0],
+                                                      [0, 0, 0, 0, 0],
+                                                      [0, 0, 0, 0, 0]])
         self.assertEqual(test_result, True)
 
     def test_chek_loze_4(self):
         test_result = GameLevel.chek_loze(GameLevel, [[0, 0, 0, 0, 0],
-                                                   [0, 0, 0, 0, 0],
-                                                   [0, 2, 0, 0, 0],
-                                                   [0, 0, 2, 0, 0],
-                                                   [0, 0, 0, 2, 0]])
+                                                      [0, 0, 0, 0, 0],
+                                                      [0, 2, 0, 0, 0],
+                                                      [0, 0, 2, 0, 0],
+                                                      [0, 0, 0, 2, 0]])
         self.assertEqual(test_result, True)
 
     def test_chek_loze_5(self):
         test_result = GameLevel.chek_loze(GameLevel, [[0, 0, 0, 0, 0],
-                                                   [0, 0, 0, 1, 0],
-                                                   [0, 0, 1, 2, 0],
-                                                   [0, 1, 0, 0, 0],
-                                                   [0, 0, 2, 0, 0]])
+                                                      [0, 0, 0, 1, 0],
+                                                      [0, 0, 1, 2, 0],
+                                                      [0, 1, 0, 0, 0],
+                                                      [0, 0, 2, 0, 0]])
         self.assertEqual(test_result, True)
 
     def test_handle_click(self):
         test_result = GameLevel.handle_click(GameLevel,
                                              1, (100, 100), self.coordinates_1, self.level_map_1
-                                    )
+                                             )
         self.assertEqual(test_result, [[1, 2, 0, 0, 0],
                                        [0, 0, 0, 0, 0],
                                        [0, 0, 0, 0, 0],

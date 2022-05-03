@@ -18,3 +18,15 @@
 - Riippuvuudet laitettu kuntoon pyydetysti
 - Lisätty aikaisemmassa pelissä olevia ominaisuuksia uuteen peliin. Voitu uusiokäyttää jotain
 - Invokea täydennetty
+
+## Viikko 6
+
+- Eroteltu suuresti käyttöliittymää eri osiin
+- Pelissä voi valita kolmen pelaajan vaihtoehdon
+- Peliruutuja on kaksi 5x5 ja 7x5
+- Lisätty kolmas kuva
+- Peli kertoo kenen vuoro on pelata
+- tasks.py tiedostossa korjattu coverage-report ja lisätty lint
+- .coveragerc tiedosto oli lisätty jo viime viikolla
+- Testikattavuus on 99%
+- Clock ominaisuus main-funktiossa
