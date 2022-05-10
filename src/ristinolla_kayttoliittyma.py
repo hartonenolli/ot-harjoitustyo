@@ -1,5 +1,6 @@
 import webbrowser
 import pygame
+import random
 from game_level import GameLevel
 
 
@@ -54,6 +55,8 @@ class Ristinolla:
         self.running = True
 
         self.three_player = False
+
+        self.one_player = False
 
     def main(self, player):
         """Pääohjelma, jossa kello käy silmukan sisällä.
@@ -126,6 +129,8 @@ class Ristinolla:
         if self.three_player is False:
             if GameLevel.chek_loze(GameLevel, self.level_map) is True:
                 self.end_screen(player)
+            if self.one_player is True and player == 2:
+                self.main(1)
             return
         if GameLevel.chek_loze(GameLevel, self.level_map_vii) is True:
             self.end_screen(player)
@@ -134,6 +139,8 @@ class Ristinolla:
         """Tarkastaa minkä pelaajan vuoro on seuraavaksi
         Kutsuu sen jälkeen main funktiota
         """
+        if self.one_player is True and player is 1:
+            self.for_bot()
         if self.three_player is False:
             if player == 1:
                 self.main(2)
@@ -144,6 +151,20 @@ class Ristinolla:
             elif player == 2:
                 self.main(3)
             self.main(1)
+
+    def for_bot(self):
+        times = 2
+        while True:
+            got_level_map = self.to_handle_click(2,
+            (self.position_map[random.randint(0,4)][random.randint(0,4)]))
+            if got_level_map is False:
+                continue
+            if GameLevel.chek_loze(GameLevel, self.level_map) is True and times >= 0:
+                self.level_map[got_level_map[0]][got_level_map[1]] = 0
+                times -= 1
+                continue
+            break
+        self.time_to_chek_for_lozer(2)
 
     def start_screen(self):
         """Pelin alkuruudussa annetaan ohjeet pelaajalle
@@ -162,13 +183,16 @@ class Ristinolla:
         game_begin_3 = font.render(
             "START GAME 3-P: PRESS T", True, (255, 255, 255))
         screen.blit(game_begin_3, (300, 240))
+        game_begin_1 = font.render(
+            "START GAME 1-P: PRESS B", True, (255, 255, 255))
+        screen.blit(game_begin_1, (300, 280))
         wiki_w = font.render("TO WIKI: PRESS W", True, (255, 255, 255))
-        screen.blit(wiki_w, (300, 280))
+        screen.blit(wiki_w, (300, 320))
         instructions = font.render(
             "TRY NOT TO GET 3 IN LINE", True, (255, 255, 255))
-        screen.blit(instructions, (300, 360))
+        screen.blit(instructions, (300, 400))
         exit_info = font.render("TO EXIT: PRESS E", True, (255, 255, 255))
-        screen.blit(exit_info, (300, 320))
+        screen.blit(exit_info, (300, 360))
 
         while self.running:
             for event in pygame.event.get():
@@ -179,6 +203,9 @@ class Ristinolla:
                         self.main(1)
                     if event.key == pygame.K_t:
                         self.three_player = True
+                        self.main(1)
+                    if event.key == pygame.K_b:
+                        self.one_player = True
                         self.main(1)
                     if event.key == pygame.K_w:
                         webbrowser.open(
@@ -215,6 +242,7 @@ class Ristinolla:
                               [0, 0, 0, 0, 0, 0, 0],
                               [0, 0, 0, 0, 0, 0, 0]]
         self.three_player = False
+        self.one_player = False
         self.start_screen()
 
 

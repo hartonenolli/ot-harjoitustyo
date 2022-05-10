@@ -1,8 +1,5 @@
 import pygame
-from sprites.white_kuva import White
-from sprites.nalle_kuva import Nalle
-from sprites.pupu_kuva import Pupu
-from sprites.pojan_amongus_kuva import PojanAmongus
+from sprites.sprite_kuvat import Spritet
 
 
 class GameLevel:
@@ -35,14 +32,14 @@ class GameLevel:
                 normalized_y = y_hight * self.cell_size
 
                 if cell == 0:
-                    self.white.add(White(normalized_x, normalized_y))
+                    self.white.add(Spritet("white.jpg", normalized_x, normalized_y))
                 if cell == 1:
-                    self.nalle.add(Nalle(normalized_x, normalized_y))
+                    self.nalle.add(Spritet("nalle.jpg", normalized_x, normalized_y))
                 if cell == 2:
-                    self.pupu.add(Pupu(normalized_x, normalized_y))
+                    self.pupu.add(Spritet("pupu.jpg", normalized_x, normalized_y))
                 if cell == 3:
                     self.pojanamongus.add(
-                        PojanAmongus(normalized_x, normalized_y))
+                        Spritet("pojanamongus.jpg", normalized_x, normalized_y))
 
         self.all_sprites.add(
             self.white,
@@ -62,12 +59,12 @@ class GameLevel:
         value = []
         for position_indx, position_list in enumerate(position_map):
             for symbol_indx, position_symbol in enumerate(position_list):
-                if cordinates[0] > position_symbol[0] and cordinates[1] > position_symbol[1]:
+                if cordinates[0] >= position_symbol[0] and cordinates[1] >= position_symbol[1]:
                     value = [position_indx, symbol_indx]
         if game_map[value[0]][value[1]] != 0:
             return False
         game_map[value[0]][value[1]] = player
-        return game_map
+        return (value[0], value[1])
 
     def chek_loze(self, game_map):
         """Tarkastetaan onko häviäjää

@@ -3,13 +3,12 @@ import pygame
 
 direktory_name = os.path.dirname(__file__)
 
-
-class Pupu(pygame.sprite.Sprite):
-    def __init__(self, x=0, y=0):
+class Spritet(pygame.sprite.Sprite):
+    def __init__(self, name, x=0, y=0):
         super().__init__()
 
         self.image = pygame.image.load(os.path.join(
-            direktory_name, "assets", "pupu.jpg"))
+            direktory_name, "assets", name))
         self.image = pygame.transform.scale(self.image, (200, 200))
 
         self.rect = self.image.get_rect()

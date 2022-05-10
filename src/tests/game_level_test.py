@@ -71,11 +71,7 @@ class TestGameLevel(unittest.TestCase):
         test_result = GameLevel.handle_click(GameLevel,
                                              1, (100, 100), self.coordinates_1, self.level_map_1
                                              )
-        self.assertEqual(test_result, [[1, 2, 0, 0, 0],
-                                       [0, 0, 0, 0, 0],
-                                       [0, 0, 0, 0, 0],
-                                       [0, 0, 0, 0, 0],
-                                       [0, 0, 1, 0, 0]])
+        self.assertEqual(test_result, (0, 0))
 
     def test_handle_click_2(self):
         test_result = GameLevel.handle_click(GameLevel,
