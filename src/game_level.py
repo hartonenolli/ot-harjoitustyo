@@ -32,11 +32,14 @@ class GameLevel:
                 normalized_y = y_hight * self.cell_size
 
                 if cell == 0:
-                    self.white.add(Spritet("white.jpg", normalized_x, normalized_y))
+                    self.white.add(
+                        Spritet("white.jpg", normalized_x, normalized_y))
                 if cell == 1:
-                    self.nalle.add(Spritet("nalle.jpg", normalized_x, normalized_y))
+                    self.nalle.add(
+                        Spritet("nalle.jpg", normalized_x, normalized_y))
                 if cell == 2:
-                    self.pupu.add(Spritet("pupu.jpg", normalized_x, normalized_y))
+                    self.pupu.add(
+                        Spritet("pupu.jpg", normalized_x, normalized_y))
                 if cell == 3:
                     self.pojanamongus.add(
                         Spritet("pojanamongus.jpg", normalized_x, normalized_y))

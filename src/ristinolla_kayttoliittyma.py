@@ -1,7 +1,8 @@
 import webbrowser
-import pygame
 import random
+import pygame
 from game_level import GameLevel
+from database_ristinolla import Database
 
 
 class Ristinolla:
@@ -33,7 +34,7 @@ class Ristinolla:
                              ]
 
         self.position_map_vii = [[(0, 0), (200, 0), (400, 0), (600, 0), (800, 0),
-                                (1000, 0), (1200, 0)],
+                                  (1000, 0), (1200, 0)],
                                  [(0, 200), (200, 200), (400, 200),
                                   (600, 200), (800, 200), (1000, 200), (1200, 200)],
                                  [(0, 400), (200, 400), (400, 400),
@@ -58,6 +59,8 @@ class Ristinolla:
 
         self.one_player = False
 
+        self.data = Database()
+
     def main(self, player):
         """Pääohjelma, jossa kello käy silmukan sisällä.
         Kutsutaan apufuntioita tarkastamaan peliruutu,
@@ -79,6 +82,9 @@ class Ristinolla:
                     pos = event.pos
                     if self.to_handle_click(player, pos) is False:
                         continue
+                    self.screen_setup(player)
+                    pygame.display.update()
+                    pygame.time.wait(1000)
                     self.time_to_chek_for_lozer(player)
                     self.next_turn(player)
 
@@ -128,6 +134,10 @@ class Ristinolla:
         """
         if self.three_player is False:
             if GameLevel.chek_loze(GameLevel, self.level_map) is True:
+                if self.one_player is True and player == 2:
+                    self.screen_setup(1)
+                    pygame.display.update()
+                    pygame.time.wait(1000)
                 self.end_screen(player)
             if self.one_player is True and player == 2:
                 self.main(1)
@@ -139,7 +149,7 @@ class Ristinolla:
         """Tarkastaa minkä pelaajan vuoro on seuraavaksi
         Kutsuu sen jälkeen main funktiota
         """
-        if self.one_player is True and player is 1:
+        if self.one_player is True and player == 1:
             self.for_bot()
         if self.three_player is False:
             if player == 1:
@@ -153,14 +163,19 @@ class Ristinolla:
             self.main(1)
 
     def for_bot(self):
+        """Pelin tekoäly.
+        Tekoäly antaa satunnaisia arvoja pelikentältä ja tarkastaa
+        häviääkö se sillä kolme kertaa."""
         times = 2
         while True:
-            got_level_map = self.to_handle_click(2,
-            (self.position_map[random.randint(0,4)][random.randint(0,4)]))
-            if got_level_map is False:
+            first = random.randint(0, 4)
+            second = random.randint(0, 4)
+            get_map = self.to_handle_click(2,
+                                           (self.position_map[first][second]))
+            if get_map is False:
                 continue
             if GameLevel.chek_loze(GameLevel, self.level_map) is True and times >= 0:
-                self.level_map[got_level_map[0]][got_level_map[1]] = 0
+                self.level_map[get_map[0]][get_map[1]] = 0
                 times -= 1
                 continue
             break
@@ -188,11 +203,13 @@ class Ristinolla:
         screen.blit(game_begin_1, (300, 280))
         wiki_w = font.render("TO WIKI: PRESS W", True, (255, 255, 255))
         screen.blit(wiki_w, (300, 320))
+        times_played = font.render("TIMES PLAYED: PRESS H", True, (255, 255, 255))
+        screen.blit(times_played, (300, 360))
         instructions = font.render(
             "TRY NOT TO GET 3 IN LINE", True, (255, 255, 255))
-        screen.blit(instructions, (300, 400))
+        screen.blit(instructions, (300, 440))
         exit_info = font.render("TO EXIT: PRESS E", True, (255, 255, 255))
-        screen.blit(exit_info, (300, 360))
+        screen.blit(exit_info, (300, 400))
 
         while self.running:
             for event in pygame.event.get():
@@ -210,9 +227,14 @@ class Ristinolla:
                     if event.key == pygame.K_w:
                         webbrowser.open(
                             r"https://en.wikipedia.org/wiki/Tic-tac-toe")
+                    if event.key == pygame.K_h:
+                        total = self.data.fech_amount_of_games()
+                        print_total = font.render(
+                            str(total) + " TIMES PLAYED", True, (0, 0, 255))
+                        screen.blit(print_total, (300, 520))
                     if event.key == pygame.K_e:
                         self.running = False
-                        pygame.quit()
+                        pygame.quit()                        
 
             pygame.display.update()
 
@@ -243,6 +265,7 @@ class Ristinolla:
                               [0, 0, 0, 0, 0, 0, 0]]
         self.three_player = False
         self.one_player = False
+        self.data.add_game()
         self.start_screen()
 
 

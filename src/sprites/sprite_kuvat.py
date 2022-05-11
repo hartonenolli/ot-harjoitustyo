@@ -3,6 +3,7 @@ import pygame
 
 direktory_name = os.path.dirname(__file__)
 
+
 class Spritet(pygame.sprite.Sprite):
     def __init__(self, name, x=0, y=0):
         super().__init__()
