@@ -13,20 +13,17 @@ Sovelluksessa on vain yhdenlaisia käyttäjiä: pelaajia.
 
 ![Tähän tulee luonnos](https://raw.githubusercontent.com/hartonenolli/ot-harjoitustyo/master/Kaavio_kuva.jpg)
 
-## suunniteltuja toiminnallisuuksia
-- Pelissä voi valita 2-4 pelaajaa
-- Pelaaja syöttää nimen ja valitsee **ikonin** (kirjain tai numero)
-- Peli pitää **Tilastoa** pelaajien voitoista
-- Pelin päätyttyä voi käynnistää uuden pelin tai palata alkuun
-
-
-## Päivitettyjä toiminnallisuuksia pelin uudelleen rakentamisen johdosta
-- Pelissä voi valita 2-3 pelaajaa
-- jokaisella pelaajaalla on oma kuva, jolla pelataan
-- peli pitää tilastoa yllä pelatuista peleistä
-
-## Toteutuneita toiminnallisuuksia
-- Pelissä voi valita 1-3 pelaajaa
-  - Yksinpeliä varten on tehty "tekoäly"
+## Toiminnallisuuksia
+- Pelissä voi valita eri pelimuotoja:
+  - Yksinpeli
+  - Kaksinpeli
+  - Kolminpeli
+- Pelissä on "tekoäly" yksinpeliä varten
 - Jokaisella pelaajalla on oma kuva, jolla pelata
+- Laitettuaan kolmen suoran peli ilmoittaa pelin pättyneen ja palaa alkuun
 - Peli pitää tilastoa yllä pelatuista peleistä tietokannan avulla
+
+## Jatkokehitysideaa
+- Pelissä voisi valita normaalin ja väärinpäin version välillä
+- Pelissä voisi valita suoran pituuden esiim 3-5 suoraa
+- Pelissä voisi käyttää nimimerkkiä, josta voitaisiin tallettaa pelihistoriaa
