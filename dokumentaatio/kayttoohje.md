@@ -43,7 +43,7 @@ Ja tulee häviöruutu:
 ![havioruutu](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/havioruutu.png)
 
 Tämän jälkeen peli palaa alkuruutuun. Painamalla **Y** pelaaja näkee pelikertojen määrät:
-![pelikerrat](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/muutos.png?raw=true)
+![pelikerrat](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/muutos.png)
 
 Painamalla **W** aukeaa wikipediasivusto ristinollasta:
 ![wikisivu](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/wikisivu.png)
