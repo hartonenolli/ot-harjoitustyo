@@ -24,4 +24,28 @@ Alkunäyttö antaa ohjeita painamaan kirjaimia, painamalla:
 - W = ohjataan *wikipedia-sivulle*
 - Y = ruudulle ilmestyy *pelikerrat*
 - P = peli *sulkeutuu*
-![]()
+![alkuruutu](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/alkuruutu.png)
+
+Painamalla **R**, **G** tai **B** peli käynnistyy:
+![alkunäkymä](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/pelinalku.png)
+
+Pelaaja painaa hiiren vasemmalla painikeella tyhjään ruutuun, jolloin ruudulle ilmestyy kuvia:
+### Yksinpeli/Kaksinpeli:
+![eteneminen](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/eteneminen.png)
+
+### Kolminpeli:
+![kolminpeli](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kolminpeli.png)
+
+Jos pelaaja laittaa kolme kuvaa suoraan vaakaan/pystyyn/vinoon, niin pelaaja häviää:
+![kolmensuora](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kolmensuora.png)
+
+Ja tulee häviöruutu:
+![havioruutu](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/havioruutu.png)
+
+Tämän jälkeen peli palaa alkuruutuun. Painamalla **Y** pelaaja näkee pelikertojen määrät:
+![pelikerrat]()
+
+Painamalla **W** aukeaa wikipediasivusto ristinollasta:
+![wikisivu](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/wikisivu.png)
+
+Painamalla **P** peli sulkeutuu
