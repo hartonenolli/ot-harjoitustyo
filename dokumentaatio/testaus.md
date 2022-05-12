@@ -24,7 +24,7 @@ Pelilogiikkaa varten on tehty automaattisesti suoritettavia testejä. Muut on te
 
 Testien kattavuus on **99%**
 
-![testikattavuuskuva]()
+![testikattavuuskuva](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/coverage_report.jpg)
 
 ## Asennuksesta
 
