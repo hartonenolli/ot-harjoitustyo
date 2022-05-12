@@ -45,21 +45,15 @@ class Ristinolla:
                                   (600, 800), (800, 800), (1000, 800), (1200, 800)],
                                  ]
 
-        self.cell_sizes = 200
-
         height = len(self.level_map)
         width = len(self.level_map[0])
 
-        self.display_height = height * self.cell_sizes
-        self.display_width = width * self.cell_sizes
-
-        self.running = True
+        self.display_height = height * 200
+        self.display_width = width * 200
 
         self.three_player = False
 
         self.one_player = False
-
-        self.data = Database()
 
     def main(self, player):
         """Pääohjelma, jossa kello käy silmukan sisällä.
@@ -73,24 +67,26 @@ class Ristinolla:
 
         clock = pygame.time.Clock()
 
-        while self.running:
+        while True:
             clock.tick(50)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    self.running = False
+                    pygame.quit()
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     pos = event.pos
-                    if self.to_handle_click(player, pos) is False:
-                        continue
-                    self.screen_setup(player)
-                    pygame.display.update()
-                    pygame.time.wait(700)
-                    self.time_to_chek_for_lozer(player)
-                    self.next_turn(player)
+                    self.event_handler(player, pos)
 
             pygame.display.update()
 
-        pygame.quit()
+    def event_handler(self, player, pos):
+        """Apufunktio käsittelemään main-funktion painalluksia"""
+        if self.to_handle_click(player, pos) is False:
+            self.main(player)
+        self.screen_setup(player)
+        pygame.display.update()
+        pygame.time.wait(700)
+        self.time_to_chek_for_lozer(player)
+        self.next_turn(player)
 
     def to_handle_click(self, player, pos):
         """Apufunktio, jolla ohjataan GameLevel luokaan klikkauksen tarkastusta varten.
@@ -115,14 +111,14 @@ class Ristinolla:
             display = pygame.display.set_mode(
                 (self.display_width, self.display_height))
             pygame.display.set_caption(str(player) + " TURN")
-            level = GameLevel(self.level_map, self.cell_sizes)
+            level = GameLevel(self.level_map, 200)
             level.all_sprites.draw(display)
             return
 
         display = pygame.display.set_mode(
-            (7 * self.cell_sizes, 5 * self.cell_sizes))
+            (7 * 200, 5 * 200))
         pygame.display.set_caption(str(player) + " TURN")
-        level = GameLevel(self.level_map_vii, self.cell_sizes)
+        level = GameLevel(self.level_map_vii, 200)
         level.all_sprites.draw(display)
 
     def time_to_chek_for_lozer(self, player):
@@ -183,7 +179,7 @@ class Ristinolla:
 
     def start_screen(self):
         """Pelin alkuruudussa annetaan ohjeet pelaajalle
-        Valintoina kaksin-, kolminpeli, wikipedia ja exit"""
+        Valintoina yksin-, kaksin-, kolminpeli, wikipedia, tilastot ja exit"""
         screen = pygame.display.set_mode(
             (self.display_width, self.display_height))
         pygame.display.set_caption("Alkuruutu")
@@ -192,65 +188,58 @@ class Ristinolla:
 
         font = pygame.font.SysFont("Comic Sans MS", 30)
 
-        game_begin_2 = font.render(
-            "START GAME 2-P: PRESS G", True, (0, 255, 0))
-        screen.blit(game_begin_2, (300, 240))
-        game_begin_3 = font.render(
-            "START GAME 3-P: PRESS B", True, (0, 0, 255))
-        screen.blit(game_begin_3, (300, 280))
-        game_begin_1 = font.render(
-            "START GAME 1-P: PRESS R", True, (255, 0, 0))
-        screen.blit(game_begin_1, (300, 200))
-        wiki_w = font.render("TO WIKI: PRESS W", True, (255, 255, 255))
-        screen.blit(wiki_w, (300, 320))
-        times_played = font.render(
-            "TIMES PLAYED: PRESS Y", True, (255, 255, 0))
-        screen.blit(times_played, (300, 360))
-        instructions = font.render(
-            "REVERCED TIC-TAC-TOE = AVOID 3 IN LINE", True, (0, 128, 128))
-        screen.blit(instructions, (200, 460))
-        exit_info = font.render("TO EXIT: PRESS P", True, (128, 0, 128))
-        screen.blit(exit_info, (300, 400))
+        screen.blit(font.render(
+            "START GAME 1-P: PRESS R", True, (255, 0, 0)), (300, 200))
+        screen.blit(font.render(
+            "START GAME 2-P: PRESS G", True, (0, 255, 0)), (300, 240))
+        screen.blit(font.render(
+            "START GAME 3-P: PRESS B", True, (0, 0, 255)), (300, 280))
+        screen.blit(font.render("TO WIKI: PRESS W",
+                    True, (255, 255, 255)), (300, 320))
+        screen.blit(font.render(
+            "TIMES PLAYED: PRESS Y", True, (255, 255, 0)), (300, 360))
+        screen.blit(font.render(
+            "REVERCED TIC-TAC-TOE = AVOID 3 IN LINE", True, (0, 128, 128)), (200, 460))
+        screen.blit(font.render("TO EXIT: PRESS P",
+                    True, (128, 0, 128)), (300, 400))
 
-        while self.running:
+        while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    self.running = False
+                    pygame.quit()
                 elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_g:
-                        self.main(1)
-                    if event.key == pygame.K_b:
-                        self.three_player = True
-                        self.main(1)
-                    if event.key == pygame.K_r:
-                        self.one_player = True
-                        self.main(1)
-                    if event.key == pygame.K_w:
-                        webbrowser.open(
-                            r"https://en.wikipedia.org/wiki/Tic-tac-toe")
-                    if event.key == pygame.K_y:
-                        total_1 = self.data.fech_amount_of_games(1)
-                        print_total_1 = font.render(
-                            str(total_1) + " TIMES PLAYED 1-P", True, (255, 0, 0))
-                        screen.blit(print_total_1, (300, 520))
-                        total_2 = self.data.fech_amount_of_games(2)
-                        print_total_2 = font.render(
-                            str(total_2) + " TIMES PLAYED 2-P", True, (0, 255, 0))
-                        screen.blit(print_total_2, (300, 560))
-                        total_3 = self.data.fech_amount_of_games(3)
-                        print_total_3 = font.render(
-                            str(total_3) + " TIMES PLAYED 3-P", True, (0, 0, 255))
-                        screen.blit(print_total_3, (300, 600))
-                        print_total_all = font.render(
-                            str(total_1 + total_2 + total_3) + " TOTALTIMES PLAYED", True, (255, 255, 0))
-                        screen.blit(print_total_all, (300, 640))
-                    if event.key == pygame.K_p:
-                        self.running = False
-                        pygame.quit()
+                    self.handle_key_down(screen, event, font)
 
             pygame.display.update()
 
-        pygame.quit()
+    def handle_key_down(self, screen, event, font):
+        """Apufunktio käsittelemään alkuruudun napinpainalluksia"""
+        if event.key == pygame.K_g:
+            self.main(1)
+        if event.key == pygame.K_b:
+            self.three_player = True
+            self.main(1)
+        if event.key == pygame.K_r:
+            self.one_player = True
+            self.main(1)
+        if event.key == pygame.K_w:
+            webbrowser.open(
+                r"https://en.wikipedia.org/wiki/Tic-tac-toe")
+        if event.key == pygame.K_y:
+            screen.blit(font.render(
+                str(Database().fech_amount_of_games(1)) + " TIMES PLAYED 1-P", True,
+                (255, 0, 0)), (300, 520))
+            total_2 = Database().fech_amount_of_games(2)
+            screen.blit(font.render(
+                str(total_2) + " TIMES PLAYED 2-P", True, (0, 255, 0)), (300, 560))
+            total_3 = Database().fech_amount_of_games(3)
+            screen.blit(font.render(
+                str(total_3) + " TIMES PLAYED 3-P", True, (0, 0, 255)), (300, 600))
+            screen.blit(font.render(
+                str(Database().fech_amount_of_games(1) + total_2 + total_3) + " TOTALTIMES PLAYED",
+                True, (255, 255, 0)), (300, 640))
+        if event.key == pygame.K_p:
+            pygame.quit()
 
     def end_screen(self, player):
         """Kerrotaan pelin häviäjä ja ruutu muuttuu valkoiseksi
@@ -276,11 +265,11 @@ class Ristinolla:
                               [0, 0, 0, 0, 0, 0, 0],
                               [0, 0, 0, 0, 0, 0, 0]]
         if self.three_player is True:
-            self.data.add_game(3)
+            Database().add_game(3)
         elif self.one_player is True:
-            self.data.add_game(1)
+            Database().add_game(1)
         else:
-            self.data.add_game(2)
+            Database().add_game(2)
         self.three_player = False
         self.one_player = False
 

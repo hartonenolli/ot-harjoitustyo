@@ -60,11 +60,11 @@ class TestGameLevel(unittest.TestCase):
         self.assertEqual(test_result, True)
 
     def test_chek_loze_5(self):
-        test_result = GameLevel.chek_loze(GameLevel, [[0, 0, 0, 0, 0],
+        test_result = GameLevel.chek_loze(GameLevel, [[2, 0, 0, 0, 0],
                                                       [0, 0, 0, 1, 0],
                                                       [0, 0, 1, 2, 0],
                                                       [0, 1, 0, 0, 0],
-                                                      [0, 0, 2, 0, 0]])
+                                                      [0, 0, 2, 2, 0]])
         self.assertEqual(test_result, True)
 
     def test_handle_click(self):
