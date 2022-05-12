@@ -3,7 +3,7 @@ import sqlite3
 
 class Database:
     def __init__(self):
-        self.to_ristinolla = sqlite3.connect("src/tilastot.db")
+        self.to_ristinolla = sqlite3.connect("datafile/tilastot.db")
         self.cursor = self.to_ristinolla.cursor()
 
     def fech_amount_of_games(self, game_mode):
