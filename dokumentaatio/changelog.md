@@ -42,4 +42,4 @@
   - Pupu
   - White
   - PojanAmongus
-- Lisätty taskeihin: bild. Tämä tekee tietokannan
+- Lisätty taskeihin: build. Tämä tekee tietokannan
