@@ -17,7 +17,7 @@ joka ei joudu pakosta asettamaan kolmensuoraa.
 - poetry install
 
 ## ENNEN ENSIMMÄISTÄ KÄYYNISTYSTÄ:
-- poetry run ivoke build
+- poetry run invoke build
 
 ### Ohjelma käynnistyy
 - poetry run invoke start
