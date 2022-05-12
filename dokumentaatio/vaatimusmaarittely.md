@@ -24,3 +24,9 @@ Sovelluksessa on vain yhdenlaisia käyttäjiä: pelaajia.
 - Pelissä voi valita 2-3 pelaajaa
 - jokaisella pelaajaalla on oma kuva, jolla pelataan
 - peli pitää tilastoa yllä pelatuista peleistä
+
+## Toteutuneita toiminnallisuuksia
+- Pelissä voi valita 1-3 pelaajaa
+  - Yksinpeliä varten on tehty "tekoäly"
+- Jokaisella pelaajalla on oma kuva, jolla pelata
+- Peli pitää tilastoa yllä pelatuista peleistä tietokannan avulla
