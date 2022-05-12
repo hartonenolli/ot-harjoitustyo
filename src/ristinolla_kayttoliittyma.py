@@ -84,7 +84,7 @@ class Ristinolla:
                         continue
                     self.screen_setup(player)
                     pygame.display.update()
-                    pygame.time.wait(1000)
+                    pygame.time.wait(700)
                     self.time_to_chek_for_lozer(player)
                     self.next_turn(player)
 
@@ -137,7 +137,7 @@ class Ristinolla:
                 if self.one_player is True and player == 2:
                     self.screen_setup(1)
                     pygame.display.update()
-                    pygame.time.wait(1000)
+                    pygame.time.wait(700)
                 self.end_screen(player)
             if self.one_player is True and player == 2:
                 self.main(1)
@@ -193,22 +193,23 @@ class Ristinolla:
         font = pygame.font.SysFont("Comic Sans MS", 30)
 
         game_begin_2 = font.render(
-            "START GAME 2-P: PRESS G", True, (255, 255, 255))
-        screen.blit(game_begin_2, (300, 200))
+            "START GAME 2-P: PRESS G", True, (0, 255, 0))
+        screen.blit(game_begin_2, (300, 240))
         game_begin_3 = font.render(
-            "START GAME 3-P: PRESS T", True, (255, 255, 255))
-        screen.blit(game_begin_3, (300, 240))
+            "START GAME 3-P: PRESS B", True, (0, 0, 255))
+        screen.blit(game_begin_3, (300, 280))
         game_begin_1 = font.render(
-            "START GAME 1-P: PRESS B", True, (255, 255, 255))
-        screen.blit(game_begin_1, (300, 280))
+            "START GAME 1-P: PRESS R", True, (255, 0, 0))
+        screen.blit(game_begin_1, (300, 200))
         wiki_w = font.render("TO WIKI: PRESS W", True, (255, 255, 255))
         screen.blit(wiki_w, (300, 320))
-        times_played = font.render("TIMES PLAYED: PRESS H", True, (255, 255, 255))
+        times_played = font.render(
+            "TIMES PLAYED: PRESS Y", True, (255, 255, 0))
         screen.blit(times_played, (300, 360))
         instructions = font.render(
-            "TRY NOT TO GET 3 IN LINE", True, (255, 255, 255))
-        screen.blit(instructions, (300, 440))
-        exit_info = font.render("TO EXIT: PRESS E", True, (255, 255, 255))
+            "REVERCED TIC-TAC-TOE = AVOID 3 IN LINE", True, (0, 128, 128))
+        screen.blit(instructions, (200, 460))
+        exit_info = font.render("TO EXIT: PRESS P", True, (128, 0, 128))
         screen.blit(exit_info, (300, 400))
 
         while self.running:
@@ -218,23 +219,34 @@ class Ristinolla:
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_g:
                         self.main(1)
-                    if event.key == pygame.K_t:
+                    if event.key == pygame.K_b:
                         self.three_player = True
                         self.main(1)
-                    if event.key == pygame.K_b:
+                    if event.key == pygame.K_r:
                         self.one_player = True
                         self.main(1)
                     if event.key == pygame.K_w:
                         webbrowser.open(
                             r"https://en.wikipedia.org/wiki/Tic-tac-toe")
-                    if event.key == pygame.K_h:
-                        total = self.data.fech_amount_of_games()
-                        print_total = font.render(
-                            str(total) + " TIMES PLAYED", True, (0, 0, 255))
-                        screen.blit(print_total, (300, 520))
-                    if event.key == pygame.K_e:
+                    if event.key == pygame.K_y:
+                        total_1 = self.data.fech_amount_of_games(1)
+                        print_total_1 = font.render(
+                            str(total_1) + " TIMES PLAYED 1-P", True, (255, 0, 0))
+                        screen.blit(print_total_1, (300, 520))
+                        total_2 = self.data.fech_amount_of_games(2)
+                        print_total_2 = font.render(
+                            str(total_2) + " TIMES PLAYED 2-P", True, (0, 255, 0))
+                        screen.blit(print_total_2, (300, 560))
+                        total_3 = self.data.fech_amount_of_games(3)
+                        print_total_3 = font.render(
+                            str(total_3) + " TIMES PLAYED 3-P", True, (0, 0, 255))
+                        screen.blit(print_total_3, (300, 600))
+                        print_total_all = font.render(
+                            str(total_1 + total_2 + total_3) + " TOTALTIMES PLAYED", True, (255, 255, 0))
+                        screen.blit(print_total_all, (300, 640))
+                    if event.key == pygame.K_p:
                         self.running = False
-                        pygame.quit()                        
+                        pygame.quit()
 
             pygame.display.update()
 
@@ -252,7 +264,7 @@ class Ristinolla:
         display.blit(font.render("PLAYER " + str(player) + " LOST",
                                  True, (0, 0, 0)), (self.display_width//2, self.display_height//2))
         pygame.display.update()
-        pygame.time.wait(6000)
+        pygame.time.wait(5000)
         self.level_map = [[0, 0, 0, 0, 0],
                           [0, 0, 0, 0, 0],
                           [0, 0, 0, 0, 0],
@@ -263,9 +275,15 @@ class Ristinolla:
                               [0, 0, 0, 0, 0, 0, 0],
                               [0, 0, 0, 0, 0, 0, 0],
                               [0, 0, 0, 0, 0, 0, 0]]
+        if self.three_player is True:
+            self.data.add_game(3)
+        elif self.one_player is True:
+            self.data.add_game(1)
+        else:
+            self.data.add_game(2)
         self.three_player = False
         self.one_player = False
-        self.data.add_game()
+
         self.start_screen()
 
 

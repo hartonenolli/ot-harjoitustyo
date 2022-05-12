@@ -1,16 +1,19 @@
 import sqlite3
 
+
 class Database:
     def __init__(self):
         self.to_ristinolla = sqlite3.connect("src/tilastot.db")
         self.cursor = self.to_ristinolla.cursor()
 
-    def fech_amount_of_games(self):
-        amount = self.cursor.execute("SELECT maara FROM Pelit").fetchone()
+    def fech_amount_of_games(self, game_mode):
+        amount = self.cursor.execute(
+            "SELECT maara FROM Pelit where mode=?;", [game_mode]).fetchone()
         self.to_ristinolla.commit()
         return amount[0]
 
-    def add_game(self):
-        total = self.fech_amount_of_games()
-        self.cursor.execute("UPDATE Pelit SET maara=?;",[1+total])
+    def add_game(self, game_mode):
+        total = self.fech_amount_of_games(game_mode)
+        self.cursor.execute("UPDATE Pelit SET maara=? WHERE mode=?;", [
+                            1+total, game_mode])
         self.to_ristinolla.commit()

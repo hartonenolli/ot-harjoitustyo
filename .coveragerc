@@ -1,3 +1,3 @@
 [run]
 source = src
-omit = src/**/__init__.py,src/tests/**,src/sprites/**,src/ristinolla_kayttoliittyma.py
+omit = src/**/__init__.py,src/tests/**,src/sprites/**,src/ristinolla_kayttoliittyma.py,src/database_ristinolla.py,src/init_database.py,src/**.db
