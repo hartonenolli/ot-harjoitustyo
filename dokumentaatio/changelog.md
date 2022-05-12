@@ -30,3 +30,16 @@
 - .coveragerc tiedosto oli lisätty jo viime viikolla
 - Testikattavuus on 99%
 - Clock ominaisuus main-funktiossa
+
+## Viikko 7
+
+- Lisätty yksinpeli mahdollisuus
+- Yksinpelille tehty "tekoäly"
+- Rakennetty tietokanta, joka pitää yllä pelikertoja
+- Paranneltu pelin esteettistä ulkonäköä
+- Luotu luokka Spritet korvaamaan aikaisemmin luokkia:
+  - Nalle
+  - Pupu
+  - White
+  - PojanAmongus
+- Lisätty taskeihin: bild. Tämä tekee tietokannan
