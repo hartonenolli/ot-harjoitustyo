@@ -6,7 +6,7 @@ joka ei joudu pakosta asettamaan kolmensuoraa.
 ## Dokumentaatio
 - [Käyttöohje](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 - [Muutokset](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
-- [Rakenne](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/rakenne.md)
+- [Arkkitehtuuri](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/rakenne.md)
 - [Vaatimuusmäärittely ja toiminnallisuudet](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 - [Testaus](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/testaus.md)
 - [Työaikakirjanpito](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
