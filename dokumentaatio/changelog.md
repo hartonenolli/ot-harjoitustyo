@@ -43,3 +43,4 @@
   - White
   - PojanAmongus
 - Lisätty taskeihin: build. Tämä tekee tietokannan
+- siistitty koodia
