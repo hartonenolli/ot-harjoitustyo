@@ -7,6 +7,7 @@ Pelissä on eri pelimuotoja:
 - yksin
 - kaksin
 - kolmin
+
 Peli tallettaa pelihistoriaa
 Peli ohjaa wikipediasivulle
 
