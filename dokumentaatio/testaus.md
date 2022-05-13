@@ -12,11 +12,15 @@ Testeillä testataan pelilogiikka. Näitä asioita ovat esim:
 - Sijoitetaan kuva peliruudulle
 - Tarkastetaan pelikenttää kolmen suoran varalta
 
+### Tietokanta
+
+Tietokantana toimii **database_ristinolla.py**-tiedosto, jossa on luokka *Database*. Luokkaa testataan automaattisin testein.
+**database_test.py**-tiedostosta löytyy luokka *TestDatabase*
+
 ### Testien ulkopuolella
 
 Pelilogiikkaa varten on tehty automaattisesti suoritettavia testejä. Muut on testattu manuaalisesti.
 - ristinolla_kayttoliittyma.py
-- database_ristinolla.py
 - sprite_kuvat.py
 - init_database.py
 
