@@ -3,6 +3,13 @@
 Sovellus on ristinolla, mutta ***väärinpäin***. Pelin voittaa se pelaaja,
 joka ei joudu pakosta asettamaan kolmensuoraa.
 
+Pelissä on eri pelimuotoja:
+- yksin
+- kaksin
+- kolmin
+Peli tallettaa pelihistoriaa
+Peli ohjaa wikipediasivulle
+
 ## Dokumentaatio
 - [Käyttöohje](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 - [Muutokset](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
