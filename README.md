@@ -10,7 +10,6 @@ joka ei joudu pakosta asettamaan kolmensuoraa.
 - [Vaatimuusmäärittely ja toiminnallisuudet](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 - [Testaus](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/testaus.md)
 - [Työaikakirjanpito](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
-- [Sekvenssikaavio](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/sekvenssikaavio_2.jpg?raw=true)
 
 # Pelin ASENNUS
 ## Komentorivi:
