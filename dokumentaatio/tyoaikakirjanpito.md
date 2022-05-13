@@ -2,7 +2,7 @@
 ## - aika
 ## - mitä tein
 
-## Yhteensä: 54h
+## Yhteensä: 63h
 
 ### 29.3
    - 0h
@@ -52,3 +52,9 @@
 ### 11.5
    - 3h
    - Saatu tietokanta toimimaan käyttöliittymän kanssa, mutta se tarvitsee laajennusta
+### 12.5
+   - 6h
+   - Laajennettu tietokantaa ja siistitty koodia. Pylint virheitä 1. Tehty useita apufunktioita. Esteettisyyttä kohennettu.
+### 13.5
+   - 3h
+   - Siistitty koko sovelluksen rakennetta ja kirjoitettu dokumentaatio valmiiksi
