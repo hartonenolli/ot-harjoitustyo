@@ -2,7 +2,7 @@
 ## - aika
 ## - mitä tein
 
-## Yhteensä: 63h
+## Yhteensä: 66h
 
 ### 29.3
    - 0h
