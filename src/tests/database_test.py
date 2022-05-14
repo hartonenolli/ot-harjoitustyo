@@ -3,6 +3,7 @@ import unittest
 import sqlite3
 from database_ristinolla import Database
 
+
 class TestDatabase(unittest.TestCase):
     def setUp(self):
         self.fake_data = "src/datatest/test_database.db"
@@ -114,20 +115,25 @@ class TestDatabase(unittest.TestCase):
 
     def test_no_good_inputs_1(self):
         Database(self.fake_data).add_game(0)
+        Database(self.fake_data).fech_amount_of_games(0)
+        Database(self.fake_data).add_game(-1)
         Database(self.fake_data).fech_amount_of_games(-1)
-        self.assertEqual(Database(self.fake_data).fech_amount_of_games(True), False)
+        self.assertEqual(
+            Database(self.fake_data).fech_amount_of_games(-1), False)
 
     def test_no_good_inputs_2(self):
-        Database(self.fake_data).add_game(-2)
+        Database(self.fake_data).add_game("b")
         Database(self.fake_data).add_game(64)
         Database(self.fake_data).fech_amount_of_games("b")
-        self.assertEqual(Database(self.fake_data).fech_amount_of_games(-2), False)
+        self.assertEqual(
+            Database(self.fake_data).fech_amount_of_games("b"), False)
 
     def test_no_good_inputs_3(self):
         Database(self.fake_data).add_game(0.5)
         Database(self.fake_data).fech_amount_of_games(True)
         Database(self.fake_data).add_game(False)
-        self.assertEqual(Database(self.fake_data).fech_amount_of_games("b"), False)
+        self.assertEqual(
+            Database(self.fake_data).fech_amount_of_games("b"), False)
 
     def test_class(self):
         self.assertNotEqual(Database(self.fake_data), 0)

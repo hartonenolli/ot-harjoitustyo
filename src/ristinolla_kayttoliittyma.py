@@ -227,7 +227,8 @@ class Ristinolla:
                 r"https://en.wikipedia.org/wiki/Tic-tac-toe")
         if event.key == pygame.K_y:
             screen.blit(font.render(
-                str(Database("datafile/tilastot.db").fech_amount_of_games(1)) + " TIMES PLAYED 1-P", True,
+                str(Database("datafile/tilastot.db").fech_amount_of_games(1)
+                    ) + " TIMES PLAYED 1-P", True,
                 (255, 0, 0)), (300, 520))
             total_2 = Database("datafile/tilastot.db").fech_amount_of_games(2)
             screen.blit(font.render(
@@ -236,7 +237,8 @@ class Ristinolla:
             screen.blit(font.render(
                 str(total_3) + " TIMES PLAYED 3-P", True, (0, 0, 255)), (300, 600))
             screen.blit(font.render(
-                str(Database("datafile/tilastot.db").fech_amount_of_games(1) + total_2 + total_3) + " TOTALTIMES PLAYED",
+                str(Database("datafile/tilastot.db").fech_amount_of_games(1) +
+                    total_2 + total_3) + " TOTALTIMES PLAYED",
                 True, (255, 255, 0)), (300, 640))
         if event.key == pygame.K_p:
             pygame.quit()
