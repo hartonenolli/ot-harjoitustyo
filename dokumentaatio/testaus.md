@@ -26,9 +26,15 @@ Pelilogiikkaa varten on tehty automaattisesti suoritettavia testejä. Muut on te
 
 ## Testikattavuus
 
-Testien kattavuus on **99%**
+Testien rivikattavuus on:
+- 99% **GameLevel**
+- 100% **Database**
 
-![testikattavuuskuva](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/coverage_report.jpg)
+Haarautuvuuden kattavuus on:
+- 100% **GameLevel**
+- 75% **Database**
+
+![testikattavuuskuva](https://github.com/hartonenolli/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/new_coverage.jpg)
 
 ## Asennuksesta
 
