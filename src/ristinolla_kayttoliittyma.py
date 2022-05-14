@@ -227,17 +227,17 @@ class Ristinolla:
                 r"https://en.wikipedia.org/wiki/Tic-tac-toe")
         if event.key == pygame.K_y:
             screen.blit(font.render(
-                str(Database("dokumentaatio/tilastot.db").fech_amount_of_games(1)
+                str(Database("datafile/tilastot.db").fech_amount_of_games(1)
                     ) + " TIMES PLAYED 1-P", True,
                 (255, 0, 0)), (300, 520))
-            total_2 = Database("dokumentaatio/tilastot.db").fech_amount_of_games(2)
+            total_2 = Database("datafile/tilastot.db").fech_amount_of_games(2)
             screen.blit(font.render(
                 str(total_2) + " TIMES PLAYED 2-P", True, (0, 255, 0)), (300, 560))
-            total_3 = Database("dokumentaatio/tilastot.db").fech_amount_of_games(3)
+            total_3 = Database("datafile/tilastot.db").fech_amount_of_games(3)
             screen.blit(font.render(
                 str(total_3) + " TIMES PLAYED 3-P", True, (0, 0, 255)), (300, 600))
             screen.blit(font.render(
-                str(Database("dokumentaatio/tilastot.db").fech_amount_of_games(1) +
+                str(Database("datafile/tilastot.db").fech_amount_of_games(1) +
                     total_2 + total_3) + " TOTALTIMES PLAYED",
                 True, (255, 255, 0)), (300, 640))
         if event.key == pygame.K_p:
@@ -267,11 +267,11 @@ class Ristinolla:
                               [0, 0, 0, 0, 0, 0, 0],
                               [0, 0, 0, 0, 0, 0, 0]]
         if self.three_player is True:
-            Database("dokumentaatio/tilastot.db").add_game(3)
+            Database("datafile/tilastot.db").add_game(3)
         elif self.one_player is True:
-            Database("dokumentaatio/tilastot.db").add_game(1)
+            Database("datafile/tilastot.db").add_game(1)
         else:
-            Database("dokumentaatio/tilastot.db").add_game(2)
+            Database("datafile/tilastot.db").add_game(2)
         self.three_player = False
         self.one_player = False
 
