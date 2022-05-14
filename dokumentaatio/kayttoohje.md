@@ -1,5 +1,5 @@
 # Käyttöohje
-Saat ladattua viimeisimmän julkaisun lähdekoodin [täältä]()
+Saat ladattua viimeisimmän julkaisun lähdekoodin [täältä](https://github.com/hartonenolli/ot-harjoitustyo/releases/tag/loppupalautus)
 
 ## Tallennus
 Tietokantaa varten on hakemisto: *datafile*
@@ -7,13 +7,13 @@ Hakemistoon luodaan *tilastot.db* tiedosto, joka pitää yllä pelien määrää
 
 ## Ohjelman käynnistyksen komennot
 Ennen käynnistystä asenna riippuvuudet:
-> poetry install
+- poetry install
 
 Ennen ensimmäistä käynnistyskertaa luo *tietokanta*:
-> poetry run invoke build
+- poetry run invoke build
 
 Ohjelman käynnistys:
-> poetry run invoke start
+- poetry run invoke start
 
 ## Peliruutu:
 # Aloitusnäyttö:
