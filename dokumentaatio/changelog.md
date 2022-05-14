@@ -44,3 +44,5 @@
   - PojanAmongus
 - Lisätty taskeihin: build. Tämä tekee tietokannan
 - siistitty koodia
+- Luotu testit tietokannalle
+  - Tehty tätä varten myös vale_tietokanta
