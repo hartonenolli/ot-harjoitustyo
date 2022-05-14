@@ -1,6 +1,6 @@
 import sqlite3
 
-for_ristinolla = sqlite3.connect("datafile/tilastot.db")
+for_ristinolla = sqlite3.connect("dokumentaatio/tilastot.db")
 cursor = for_ristinolla.cursor()
 
 cursor.execute(
