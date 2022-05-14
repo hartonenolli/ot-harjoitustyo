@@ -58,3 +58,6 @@
 ### 13.5
    - 3h
    - Siistitty koko sovelluksen rakennetta ja kirjoitettu dokumentaatio valmiiksi
+### 14.5
+   - 3h
+   - Muokattu tietokantaa niin, että testien suoritus onnistuu. Tehty testejä sille
