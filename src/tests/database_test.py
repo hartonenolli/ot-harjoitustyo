@@ -8,9 +8,7 @@ class TestDatabase(unittest.TestCase):
         self.fake_data = "src/datatest/test_database.db"
         self.to_ristinolla = sqlite3.connect(self.fake_data)
         self.cursor = self.to_ristinolla.cursor()
-        self.cursor.execute("UPDATE Pelit SET maara=0 WHERE mode=1;")
-        self.cursor.execute("UPDATE Pelit SET maara=0 WHERE mode=2;")
-        self.cursor.execute("UPDATE Pelit SET maara=0 WHERE mode=3;")
+        self.cursor.execute("UPDATE Pelit SET maara=0 WHERE mode<=3;")
         self.to_ristinolla.commit()
 
     def test_fech_amount_of_games_1(self):
@@ -133,3 +131,20 @@ class TestDatabase(unittest.TestCase):
 
     def test_class(self):
         self.assertNotEqual(Database(self.fake_data), 0)
+
+    def test_new_update_1(self):
+        self.cursor.execute("UPDATE Pelit SET maara=10 WHERE mode=1;")
+        self.to_ristinolla.commit()
+        self.cursor.execute("UPDATE Pelit SET maara=10 WHERE mode=1;")
+        self.assertEqual(Database(self.fake_data).fech_amount_of_games(1), 10)
+
+    def test_new_update_2(self):
+        self.cursor.execute("UPDATE Pelit SET maara=100 WHERE mode=3;")
+        self.cursor.execute("UPDATE Pelit SET maara=50 WHERE mode=2;")
+        self.to_ristinolla.commit()
+        self.assertEqual(Database(self.fake_data).fech_amount_of_games(2), 50)
+
+    def test_new_update_3(self):
+        self.cursor.execute("UPDATE Pelit SET maara=100 WHERE mode=3;")
+        self.to_ristinolla.commit()
+        self.assertEqual(Database(self.fake_data).fech_amount_of_games(3), 100)
